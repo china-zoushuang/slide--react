@@ -1,0 +1,40 @@
+* {
+  margin:0;
+  padding:0;
+  /*清除移动端默认的点击高亮效果*/
+  -webkit-tap-highlight-color:transparent;
+}
+html, body {
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+body {
+  font-family: miui, Helvetica, Arial;
+}
+header, section, footer, figure, figcaption, nav, article {
+  display: block;
+}
+ul, ol { 
+  list-style: none;
+}
+img {
+  display: block;
+  border: none;
+}
+a, button, div, input {
+  outline: 0
+}
+a, a:hover, a:visited {
+  text-decoration: none;
+}
+input, select {
+  border: none;
+  /*清除移动端默认的表单样式*/
+  -webkit-appearance: none;
+}
+i, em {
+  font-style: normal;
+}
+

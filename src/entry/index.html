@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <!-- dns 预解析 -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <!-- 开启对 web app 程序的支持 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!-- 禁止将页面的数字转换成手机号连接 -->
+    <meta name="format-detection" content="telephone=no, email=no, address=no">
+    <title>Swipe--react</title>
+    <script>
+      function resetFontSize() {
+        var docEl = document.documentElement
+        var dpr = window.devicePixelRatio
+        var scale = 1 / dpr
+        document.querySelector('meta[name="viewport"]').setAttribute('content', 'initial-scale=1,maximum-scale=' + scale + ',minimum-scale=' + scale + ',user-scalable=no')
+        var rem = docEl.clientWidth / 10
+        docEl.style.fontSize = rem + 'px'
+        /*处理放大镜效果*/
+        var realFontSize = parseFloat(window.getComputedStyle(docEl).fontSize)
+        var resetRem = rem * rem / realFontSize
+        docEl.style.fontSize = resetRem + "px"
+      }
+      resetFontSize()
+      window.addEventListener('resize', function() { resetFontSize() }, false)
+
+      window.addEventListener('pageshow', function(e) {
+          if (e.persisted) {
+              clearTimeout(timeOut)
+              var timeOut = setTimeout(resetFontSize, 0)
+          }
+      }, false)
+    </script>
+  </head>
+  <body>
+    <main id="app"></main>
+  </body>
+</html>
